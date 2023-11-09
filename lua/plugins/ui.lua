@@ -1,11 +1,11 @@
 return {
-    { "nvim-tree/nvim-web-devicons", event = { "BufReadPre", "BufNewFile" } },
-    { "nvim-lualine/lualine.nvim", event = { "BufReadPre", "BufNewFile" } },
-    { "lukas-reineke/headlines.nvim", opts = {}, ft = "markdown" },
-    { "windwp/nvim-autopairs", opts = {}, event = "InsertEnter" },
+    { "nvim-tree/nvim-web-devicons",  lazy = true },
+    { "nvim-lualine/lualine.nvim",    event = "VeryLazy" },
+    { "lukas-reineke/headlines.nvim", opts = {},         ft = "markdown" },
+    { "windwp/nvim-autopairs",        opts = {},         event = "InsertEnter" },
     {
         "stevearc/oil.nvim",
-        event = "VeryLazy",
+        cmd = "Oil",
         opts = {
             columns = { "icon", "permissions", "size", "mtime" },
             view_options = { show_hidden = true },
@@ -14,12 +14,12 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        event = "VimEnter",
+        event = "VeryLazy",
         opts = {},
     },
     {
         "Bekaboo/dropbar.nvim",
-        event = { "BufReadPre", "BufNewFile" },
+        event = "VeryLazy",
         dependencies = {
             "nvim-telescope/telescope-fzf-native.nvim",
         },
@@ -42,13 +42,12 @@ return {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = { "BufReadPre", "BufNewFile" },
+        event = { "VeryLazy" },
         main = "ibl",
         opts = {
             indent = { char = "▏" },
             scope = {
-                show_start = false,
-                show_end = false,
+                enabled = false,
             },
         },
     },
