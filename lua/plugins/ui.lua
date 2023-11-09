@@ -1,6 +1,8 @@
 return {
     { "nvim-tree/nvim-web-devicons", event = { "BufReadPre", "BufNewFile" } },
     { "nvim-lualine/lualine.nvim", event = { "BufReadPre", "BufNewFile" } },
+    { "lukas-reineke/headlines.nvim", opts = {}, ft = "markdown" },
+    { "windwp/nvim-autopairs", opts = {}, event = "InsertEnter" },
     {
         "stevearc/oil.nvim",
         event = "VeryLazy",
@@ -38,7 +40,6 @@ return {
         },
         cmd = "AerialToggle",
     },
-    { "windwp/nvim-autopairs", opts = {}, event = "InsertEnter" },
     {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPre", "BufNewFile" },
@@ -51,5 +52,4 @@ return {
             },
         },
     },
-    { "lukas-reineke/headlines.nvim", opts = {}, ft = "markdown" },
 }
