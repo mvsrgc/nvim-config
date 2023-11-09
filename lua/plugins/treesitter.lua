@@ -1,1 +1,15 @@
-return { { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', event = { 'BufReadPre', 'BufNewFile' }, }, }
+return {
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            local _ = require("nvim-treesitter.configs").setup {
+                ensure_installed = { "python", "lua", "go", "c", "cpp", "markdown" },
+                highlight = {
+                    enable = true,
+                },
+            }
+        end,
+    },
+}
