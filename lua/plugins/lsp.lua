@@ -1,6 +1,7 @@
 return {
     {
         'VonHeikemen/lsp-zero.nvim',
+        event = 'BufReadPre',
         branch = 'v3.x',
         dependencies = {
             'neovim/nvim-lspconfig',
@@ -41,10 +42,10 @@ return {
 
             cmp.setup({
                 sources = {
-                    { name = 'path' },
-                    { name = 'nvim_lsp' },
-                    { name = 'buffer' },
-                    { name = 'luasnip' },
+                    { name = 'nvim_lsp', priority = 1000 },
+                    { name = 'luasnip', priority = 750 },
+                    { name = 'buffer', priority = 500 },
+                    { name = 'path', priority = 250 },
                 },
                 formatting = require('lsp-zero').cmp_format(),
                 mapping = cmp.mapping.preset.insert({

@@ -1,10 +1,18 @@
 return {
+    { 'j-hui/fidget.nvim', opts = {} },
+    { 'folke/tokyonight.nvim', opts = {} },
     { 'nvim-tree/nvim-web-devicons', lazy = true },
-    { 'mrjones2014/smart-splits.nvim', opts = {} },
-    { 'nvim-lualine/lualine.nvim', event = 'VeryLazy' },
+    {
+        'nvim-lualine/lualine.nvim',
+        event = 'VeryLazy',
+        opts = {},
+    },
     { 'lukas-reineke/headlines.nvim', opts = {}, ft = 'markdown' },
-    { 'echasnovski/mini.pairs', opts = {}, event = 'InsertEnter', version = false },
-    { 'echasnovski/mini.surround', version = false, opts = {}, event = 'VeryLazy' },
+    {
+        'folke/trouble.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = {},
+    },
     {
         'RRethy/vim-illuminate',
         event = 'VeryLazy',
@@ -17,14 +25,6 @@ return {
                 },
             })
         end,
-    },
-    {
-        'stevearc/oil.nvim',
-        cmd = 'Oil',
-        opts = {
-            columns = { 'icon', 'permissions', 'size', 'mtime' },
-            view_options = { show_hidden = true },
-        },
     },
     {
         'lewis6991/gitsigns.nvim',
