@@ -175,6 +175,27 @@ ins_left({
     icon = ' LSP:',
 })
 
+ins_left({
+    function()
+        local conform = require('conform')
+        local lsp_format = require('conform.lsp_format')
+
+        -- Get formatters for the current buffer
+        local formatters = conform.list_formatters_for_buffer()
+        if formatters and #formatters > 0 then
+            return formatters[1] -- Display the first available formatter
+        end
+
+        -- Check if there's an LSP formatter
+        local lsp_clients = lsp_format.get_format_clients({ bufnr = bufnr })
+        if not vim.tbl_isempty(lsp_clients) then
+            return 'LSP Formatter'
+        end
+
+        return 'No Formatter'
+    end,
+})
+
 -- Add components to right sections
 ins_right({
     'o:encoding', -- option component same as &encoding in viml
