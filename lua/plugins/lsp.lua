@@ -14,7 +14,7 @@ return {
 
             lsp_zero.on_attach(function(_, bufnr)
                 lsp_zero.default_keymaps({ buffer = bufnr })
-                lsp_zero.buffer_autoformat()
+                --lsp_zero.buffer_autoformat()
             end)
 
             lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
@@ -55,5 +55,17 @@ return {
                 }),
             })
         end,
+    },
+    {
+        'stevearc/conform.nvim',
+        opts = {
+            format_on_save = {
+                timeout_ms = 500,
+            },
+            formatters_by_ft = {
+                lua = { 'stylua' },
+                lsp_fallback = true,
+            },
+        },
     },
 }
